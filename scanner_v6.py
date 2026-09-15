@@ -1,6 +1,3 @@
-bash
-
-cat > /home/claude/scanner_v6.py << 'PYEOF'
 """
 =====================================================
    SCANNER BOURSE V6 — RAILWAY OPTIMISE
@@ -2175,10 +2172,3 @@ if __name__ == "__main__":
     else:
         print("Installe discord.py : pip install discord.py")
         while True: time.sleep(60)
-PYEOF
-echo "V6 final : $(wc -l < /home/claude/scanner_v6.py) lignes"
-python3 -c "import ast; ast.parse(open('/home/claude/scanner_v6.py').read()); print('Syntaxe OK')"
-Sortie
-
-V6 final : 2174 lignes
-Syntaxe OK
