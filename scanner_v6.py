@@ -80,7 +80,7 @@ PORT            = int(os.environ.get("PORT",         5000))
 
 SEUIL_MOMENTUM  = 10.0
 SEUIL_VEILLE    = 3.0
-MAX_WORKERS     = 8    # Raisonnable pour eviter les rate limits
+MAX_WORKERS     = 3    # Raisonnable pour eviter les rate limits
 
 # Horaires (bot demarre a 08h00 via Railway cron, s'arrete a 22h45)
 HORAIRES = {
@@ -211,7 +211,7 @@ def finnhub_get(endpoint, params):
         )
         if r.status_code == 429:
             print(f"Finnhub rate limit — attente 60s")
-            time.sleep(60)
+            time.sleep(1)
             r = requests.get(f"{FINNHUB_BASE}/{endpoint}", params=params, timeout=8)
         data = r.json()
         _finnhub_cache[cle] = data
